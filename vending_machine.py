@@ -12,4 +12,5 @@ def awaitCost(cost):
     while amountInserted < cost:
         amountInserted+=awaitCoin()
         print(f"Amount STILL due: {cost-amountInserted}")
+
 awaitCost(50)
