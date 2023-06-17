@@ -11,6 +11,9 @@ def awaitCost(cost):
     amountInserted = 0
     while amountInserted < cost:
         amountInserted+=awaitCoin()
+        if amountInserted > cost:
+            break
         print(f"Amount STILL due: {cost-amountInserted}")
+    print("Thanks! Enjoy your MTN DEW KICKSTART® BLACK CHERRY")
 
 awaitCost(50)
