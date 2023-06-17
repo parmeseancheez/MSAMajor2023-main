@@ -5,7 +5,6 @@ def awaitCoin():
             print("Must input 1, 5, 10, or 25")
         else:
             return userInput
-     
 
 def awaitCost(cost):
     print(f"um gimme {cost} (in cents)")
