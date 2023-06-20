@@ -16,7 +16,7 @@ def main():
     while True:
         try:
             num_questions = int(input("Enter amount of questions (1-10): "))
-            if num_questions + 1 in range(10):
+            if num_questions - 1 in range(10):
                 break
             else:
                 print("do you know what 1-10 means. it means you can only input numbers one through ten. Count with me: 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10!")
