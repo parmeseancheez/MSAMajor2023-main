@@ -11,7 +11,7 @@ def main():
             else:
                 print("please enter a number that is either 1, 2, or 3. stop being silly")
         except ValueError:
-            print("bro do you even know what a number is")
+            print("do you even know what a number is")
     
     while True:
         try:
@@ -21,7 +21,7 @@ def main():
             else:
                 print("do you know what 1-10 means. it means you can only input numbers one through ten. Count with me: 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10!")
         except ValueError:
-            print("bro do you even know what a number is")
+            print("do you even know what a number is")
 
     for lol in range(num_questions):
         total += 1
@@ -38,21 +38,22 @@ def main():
                     tries -= 1
                     print(f"Tries left {tries} | I GET ANGRIER FOR EVERY PROBLEM YOU GET WRONG. I HEAR EVERY DOOR YOU OPEN. >:(\n")
                     if not tries > 0:
-                        print(f"wow, you're really dumb! The answer to {number1} + {number2} = {number1 + number2}")
+                        print(f"The answer to {number1} + {number2} = {number1 + number2} | better luck next time... ig :)")
                         break
             except ValueError:
                 tries -= 1
-                print(f"Tries left {tries} | math is about numbers, stop putting stuff other than numbers please and thank you.")
+                print(f"Tries left {tries} | math is about numbers, stop putting stuff other than numbers, please and thank you.")
                 if not tries > 0:
-                    print(f"wow, you're really dumb! The answer to {number1} + {number2} = {number1 + number2}")
+                    print(f"The answer to {number1} + {number2} = {number1 + number2}")
                     break
 
     percent = correct/total*100
     print(f"\nYour grade: {percent:.2f}%")
 
     if percent >= 99:
-        print("A+, nerd.")
-    
+        print("A+, ")
+    elif percent <= 25:
+        print("L")    
 
 def generate_random(difficulty):
     import random
