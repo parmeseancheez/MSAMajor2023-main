@@ -13,7 +13,7 @@ print("Student Averages:")
 for student in range(len(gradebook)):
     print(f"Student {student + 1}: {sum(gradebook[student])/len(gradebook[student])}")
 
-print("Assignment Averages")
+print("\nAssignment Averages")
 for assingment in range(len(gradebook[0])):
     assignment_scores = []
     for student in range(len(gradebook)):
