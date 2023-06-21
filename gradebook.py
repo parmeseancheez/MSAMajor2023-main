@@ -9,14 +9,14 @@ gradebook = [[61, 74, 69, 62, 72, 66, 73, 65, 60, 63, 69, 63, 62, 61, 64],
              [89, 80, 81, 89, 86, 86, 85, 80, 79, 90, 83, 85, 90, 79, 80],
              [99, 73, 86, 77, 87, 99, 71, 96, 81, 83, 71, 75, 91, 74, 72]]
 
-print("Student Averages:")
-for student in range(len(gradebook)):
-    print(f"Student {student + 1}: {sum(gradebook[student])/len(gradebook[student])}")
-
 print("\nAssignment Averages")
-for assingment in range(len(gradebook[0])):
+for assignment in range(len(gradebook[0])):
     assignment_scores = []
     for student in range(len(gradebook)):
-        assignment_scores.append(gradebook[student][assingment])
-    print(f"Assignment {assingment + 1}: {sum(assignment_scores)/len(assignment_scores)}")
-    
+        assignment_scores.append(gradebook[student][assignment])
+    print(f"Assignment {assignment + 1}: {sum(assignment_scores)/len(assignment_scores):.2f}")
+
+print("Student Averages:")
+for student in range(len(gradebook)):
+    print(f"Student {student + 1}: {sum(gradebook[student])/len(gradebook[student]):.2f}")
+
