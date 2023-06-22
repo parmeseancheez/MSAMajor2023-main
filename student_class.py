@@ -18,7 +18,7 @@ class Student():
             return "Senior"
     
     def update_credit_hours(self, hours):
-        self.__credit_hours += 1
+        self.__credit_hours += hours
 
     def print_student_data(self):
         print(self.__first_name, self.__last_name, self.__major, self.__credit_hours, self.__gpa, self.__id_number)
