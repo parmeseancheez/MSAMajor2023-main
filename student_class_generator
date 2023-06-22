@@ -1,0 +1,7 @@
+import student_class
+
+students = []
+students.append(student_class.Student("Sean", "Cajigal", "Think Like A Programmer", 55, 2.5, 2025076))
+students.append(student_class.Student("Jemuel", "Lee", "Think Like A Programmer", 61, 2.5, 134245))
+
+student_class.print_student_data()
