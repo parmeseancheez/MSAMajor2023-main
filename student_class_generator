@@ -1,8 +1,14 @@
 import student_class
 
+data_file = open("students.csv", "r")
+
 students = []
-students.append(student_class.Student("Sean", "Cajigal", "Think Like A Programmer", 55, 2.5, 2025076))
-students.append(student_class.Student("Jemuel", "Lee", "Think Like A Programmer", 61, 2.5, 134245))
+for line_of_data in data_file:
+    print(line_of_data)
+    key_values = line_of_data.split(",")
+    students.append(student_class.Student(key_values[0], key_values[1], key_values[2], int(key_values[3]), float(key_values[4]), int(key_values[5])))
+
+data_file.close()
 
 for student in students:
     student.print_student_data()
