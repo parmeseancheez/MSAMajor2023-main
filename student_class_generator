@@ -1,15 +1,16 @@
 import student_class
+from datetime import datetime
 
 try:
     data_file = open("students.csv", "r")
 except Exception:
     print("Error opening file.")
 
-def write_to_error_log(error):
+def write_to_error_log(message):
     try:
         #open log file
-        log_file = open("error_log.txt", "w")
-        log_file.write(str(error))
+        log_file = open("error_log.txt", "a")
+        log_file.write(f"{str(datetime.now())}: {message}\n")
         log_file.close()
     except Exception as err:
         print(err)
