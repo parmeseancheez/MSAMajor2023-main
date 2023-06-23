@@ -1,13 +1,17 @@
 import student_class
 
-data_file = open("students.csv", "r")
+try:
+    data_file = open("students.csv", "r")
+except Exception:
+    print("Error opening file.")
 
 students = []
 for line_of_data in data_file:
     print(line_of_data)
     key_values = line_of_data.split(",")
-    students.append(student_class.Student(key_values[0], key_values[1], key_values[2], int(key_values[3]), float(key_values[4]), int(key_values[5])))
-
+    if len(key_values) == 6:
+        students.append(student_class.Student(key_values[0], key_values[1], key_values[2], int(key_values[3]), float(key_values[4]), int(key_values[5])))
+    
 data_file.close()
 
 for student in students:
