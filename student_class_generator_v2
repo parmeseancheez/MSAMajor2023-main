@@ -62,6 +62,17 @@ def student_to_dictionary(students):
 
         student_dictionary_list.append(student_dictionary)
 
+    return student_dictionary_list
+
+def get_student_dictionaries():
+    #get a list of students
+    student_list = load_students()
+
+    #get list of student dictiontaries
+    student_dictionaries =student_to_dictionary(student_list)
+
+    return student_dictionaries
+
         
 
 
