@@ -24,15 +24,15 @@ Output: list of student objects
 
 
 def load_students():
-    try:
-        students = []
-        for line_of_data in data_file:
+    students = []
+    for line_of_data in data_file:
+        try:
             print(line_of_data)
             key_values = line_of_data.split(",")
             if len(key_values) == 6:
                 students.append(student_class.Student(key_values[0], key_values[1], key_values[2], int(key_values[3]), float(key_values[4]), int(key_values[5])))
-    except Exception as error:
-        write_to_error_log(error)
+        except Exception as error:
+            write_to_error_log(error)
     
     return students
 

@@ -6,7 +6,7 @@ import student_class_generator_v2
 app = flask.Flask(__name__)
 
 #Auto reload server when changes made
-app.config["DEBUG"]
+app.config["DEBUG"] = True
 
 #load student dictionaries
 student_dictionaries = student_class_generator_v2.get_student_dictionaries()
