@@ -73,9 +73,6 @@ def get_student_dictionaries():
 
     return student_dictionaries
 
-load_students()
-print(get_student_dictionaries())
-
         
 
 
