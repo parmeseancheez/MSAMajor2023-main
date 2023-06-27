@@ -2,10 +2,22 @@
 
 {% block content %}
     <h1>{% block title %} Student Data {% endblock %}</h1>
-    {% for student in student_data %}
-        <div class="post">
-            <h2>{{ student['first_name'] }}  {{student['last_name'] }}</h2>
+    <div class="card-columns">
+        {% for student in student_data %}
+        <div class="card">
+            <img src="https://media.tenor.com/LV5XqMx-mlQAAAAC/dr-han-the-good-doctor.gif" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{student['last_name'] }}, {{ student['first_name'] }}</h5>
+                <p class="card-text">GPA: {{ student['gpa'] }}</p>
+                <p class="card-text">Major: {{ student['major'] }}</p>
+                <p class="card-text">Student ID: {{ student['id'] }}</p>
+                <button type="button" class="btn btn-danger" onclick="
+                bruh(this.parentElement.parentElement);
+                
+                ">Expel</button>
+            </div>
         </div>
-
     {% endfor %}
+    </div>
+    
 {% endblock %}
