@@ -1,6 +1,6 @@
 import flask
 from flask import request, jsonify
-import student_class_generator_v2
+import student_class_generator_v2 as sg
 
 #Create an app
 app = flask.Flask(__name__)
@@ -9,7 +9,7 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 #load student dictionaries
-student_dictionaries = student_class_generator_v2.get_student_dictionaries()
+student_dictionaries = sg.get_student_dictionaries()
 
 @app.route('/', methods=['GET'])
 def index():
