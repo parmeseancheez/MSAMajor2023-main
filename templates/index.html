@@ -1,20 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Student Data {% endblock %}</h1>
-    <div class="card-columns">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>            
+    <h1 style="text-align: center;">{% block title %} Student Data {% endblock %}</h1>
+    <div class="card-columns" style="text-align: center;">
         {% for student in student_data %}
-        <div class="card">
+        <div class="card" style="margin:16px">
             <img src="https://media.tenor.com/LV5XqMx-mlQAAAAC/dr-han-the-good-doctor.gif" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{student['last_name'] }}, {{ student['first_name'] }}</h5>
                 <p class="card-text">GPA: {{ student['gpa'] }}</p>
                 <p class="card-text">Major: {{ student['major'] }}</p>
                 <p class="card-text">Student ID: {{ student['id'] }}</p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    bruh
+                </button>
                 <button type="button" class="btn btn-danger" onclick="
                 bruh(this.parentElement.parentElement);
                 
                 ">Expel</button>
+
+
             </div>
         </div>
     {% endfor %}
