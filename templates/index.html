@@ -5,15 +5,15 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">bruh</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              ...
+            bruh, what the heck
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">bruh</button>
+              <button type="button" class="btn btn-primary" onclick="window.open('', '_blank');">this goes to nothing</button>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
     <h1 style="text-align: center;">{% block title %} Student Data {% endblock %}</h1>
     <div class="card-columns" style="text-align: center;">
         {% for student in student_data %}
-        <div class="card" style="margin:16px">
+        <div class="card" style="margin:16px;width: 16rem;">
             <img src="https://media.tenor.com/LV5XqMx-mlQAAAAC/dr-han-the-good-doctor.gif" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{student['last_name'] }}, {{ student['first_name'] }}</h5>
@@ -39,7 +39,7 @@
 
             </div>
         </div>
-    {% endfor %}
+        {% endfor %}
     </div>
     
 {% endblock %}
