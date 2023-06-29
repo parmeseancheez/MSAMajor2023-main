@@ -5,7 +5,14 @@ from bs4 import BeautifulSoup
 import json
 
 def export_data(list_of_stocks):
-    export_file = open("stocks.csv", "r")
+    export_file = open("stocks.csv", "w")
+
+    #write a header row in the csv file
+    header_row = ""
+    for key in list_of_stocks[0]:
+        header_row += key+","
+    
+    export_file.write(f"{header_row}\n")
 
     #loop through list of stocks
     for stock in list_of_stocks:
@@ -33,7 +40,7 @@ def main():
         url = f'https://finance.yahoo.com/quote/{symbol}'
 
         #request the page
-        print(f"Requesting symbol {symbol} from {url}")
+        print(f"Requesting data from symbol {symbol} via {url}")
         response = requests.get(url, headers=headers)
 
         #parse html and create a beautiful soup object
@@ -43,6 +50,8 @@ def main():
         #    print(table)
 
         stock_dictionary = {}
+        stock_dictionary['symbol'] = symbol
+
         counter = 1
         for cell in soup.find_all('td'):
             #odd iterations are key. Set key on odd numbered interations
@@ -58,4 +67,6 @@ def main():
         time.sleep(0)
 
     file.write(to_write)
+    export_data(list_of_stock_dictionaries)
+
 main()
