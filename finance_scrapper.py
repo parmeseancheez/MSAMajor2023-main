@@ -4,15 +4,27 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import json
 
+def open_file():
+    file = open("stock_list.csv", "r")
+    symbol_name_dictionary = {}
+    counter = 0
+    for line in file:
+        if counter != 0:
+            symbol_name_dictionary[line.split(",",1)[0]] = line.split(",",1)[1]
+        counter+=1
+        
+    print(symbol_name_dictionary)
+    return symbol_name_dictionary
+
 def export_data(list_of_stocks):
     export_file = open("stocks.csv", "w")
 
     #write a header row in the csv file
-    header_row = ""
-    for key in list_of_stocks[0]:
-        header_row += key+","
+    #header_row = ""
+    #for key in list_of_stocks[0]:
+    #    header_row += key+","
     
-    export_file.write(f"{header_row}\n")
+    #export_file.write(f"{header_row}\n")
 
     #loop through list of stocks
     for stock in list_of_stocks:
@@ -33,14 +45,15 @@ def main():
 
     headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"}
     
-    symbols_list = ["GOOGL", "IBM", "SBUX", "AMC", "NFLX", "TSLA", "BA", "RBLX"]
+    #symbols_list = ["GOOGL", "IBM", "SBUX", "AMC", "NFLX", "TSLA", "BA", "RBLX"]
+    symbols_dictionary = open_file()
     list_of_stock_dictionaries = []
     
-    for symbol in symbols_list:
+    for symbol in symbols_dictionary:
         url = f'https://finance.yahoo.com/quote/{symbol}'
 
         #request the page
-        print(f"Requesting data from symbol {symbol} via {url}")
+        print(f"({url}) Requesting stock data for {symbols_dictionary[symbol]}: {symbol}")
         response = requests.get(url, headers=headers)
 
         #parse html and create a beautiful soup object
@@ -60,7 +73,11 @@ def main():
             else:
                 stock_dictionary[key] = cell.text
             counter += 1
-        to_write += f"{symbol}: {stock_dictionary} "
+        
+        to_write += f"{symbol}:"
+        for key in stock_dictionary:
+            to_write += f"({key}: {stock_dictionary[key]}) "
+        
         to_write += "<hr/>"
         list_of_stock_dictionaries.append(stock_dictionary)
 
